@@ -64,6 +64,7 @@
     <script>scripts\scr_place_move_squares.gml</script>
     <script>scripts\scr_calculate_dist.gml</script>
     <script>scripts\scr_mele_attack.gml</script>
+    <script>scripts\scr_ranged_attack.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\par_enemy</object>
@@ -77,6 +78,8 @@
     <objects name="Assets">
       <object>objects\obj_heavy_in</object>
       <object>objects\obj_en_heavy_in</object>
+      <object>objects\obj_apprentice</object>
+      <object>objects\obj_spell_circle</object>
     </objects>
     <objects name="game_Mechanics_controler_stuff">
       <object>objects\obj_resolution_control</object>
@@ -88,11 +91,11 @@
       <object>objects\obj_move_square</object>
       <object>objects\obj_Warring_Lords_Logo</object>
       <object>objects\obj_attack_square</object>
+      <object>objects\obj_damage_dealt</object>
     </objects>
     <objects name="splash_controler">
       <object>objects\obj_splashcontroller</object>
     </objects>
-    <object>objects\obj_damage_dealt</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_splash</room>

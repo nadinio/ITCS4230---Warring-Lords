@@ -27,41 +27,42 @@
             <kind>1</kind>
             <string>/// Create the attack squares
 
-
-if (instance_position(x+32, y, par_enemy)) 
-    if(!instance_position(x+32, y, obj_attack_square))
-        instance_create(x+32, y, obj_attack_square);
-     
-if (instance_position(x-32, y, par_enemy))
-    if(!instance_position(x-32, y, obj_attack_square))
-        instance_create(x-32, y, obj_attack_square);
-
-if (instance_position(x, y-32, par_enemy)) 
-    if(!instance_position(x, y-32, obj_attack_square))
-    instance_create(x, y-32, obj_attack_square);
-
-
-if (instance_position(x, y+32, par_enemy))
-    if(!instance_position(x, y+32, obj_attack_square))
-        instance_create(x, y+32, obj_attack_square);
-
-if (instance_position(x+32, y+32, par_enemy)) 
-    if(!instance_position(x+32, y+32, obj_attack_square))
-        instance_create(x+32, y+32, obj_attack_square);
-        
-        
-if (instance_position(x+32, y-32, par_enemy)) 
-    if(!instance_position(x+32, y-32, obj_attack_square))
-        instance_create(x+32, y-32, obj_attack_square);
-        
-if (instance_position(x-32, y+32, par_enemy)) 
-    if(!instance_position(x-32, y+32, obj_attack_square))
-        instance_create(x-32, y+32, obj_attack_square);
-        
-if (instance_position(x-32, y-32, par_enemy))
-    if(!instance_position(x-32, y-32, obj_attack_square))
-        instance_create(x-32, y-32, obj_attack_square);
-
+if (global.selected.attack == false)
+{    
+    if (instance_position(x+32, y, par_enemy)) 
+        if(!instance_position(x+32, y, obj_attack_square))
+            instance_create(x+32, y, obj_attack_square);
+         
+    if (instance_position(x-32, y, par_enemy))
+        if(!instance_position(x-32, y, obj_attack_square))
+            instance_create(x-32, y, obj_attack_square);
+    
+    if (instance_position(x, y-32, par_enemy)) 
+        if(!instance_position(x, y-32, obj_attack_square))
+        instance_create(x, y-32, obj_attack_square);
+    
+    
+    if (instance_position(x, y+32, par_enemy))
+        if(!instance_position(x, y+32, obj_attack_square))
+            instance_create(x, y+32, obj_attack_square);
+    
+    if (instance_position(x+32, y+32, par_enemy)) 
+        if(!instance_position(x+32, y+32, obj_attack_square))
+            instance_create(x+32, y+32, obj_attack_square);
+            
+            
+    if (instance_position(x+32, y-32, par_enemy)) 
+        if(!instance_position(x+32, y-32, obj_attack_square))
+            instance_create(x+32, y-32, obj_attack_square);
+            
+    if (instance_position(x-32, y+32, par_enemy)) 
+        if(!instance_position(x-32, y+32, obj_attack_square))
+            instance_create(x-32, y+32, obj_attack_square);
+            
+    if (instance_position(x-32, y-32, par_enemy))
+        if(!instance_position(x-32, y-32, obj_attack_square))
+            instance_create(x-32, y-32, obj_attack_square);
+}
 </string>
           </argument>
         </arguments>

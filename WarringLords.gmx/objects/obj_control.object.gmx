@@ -90,6 +90,7 @@ if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
     with (par_player)
     {
         pixel_dist = orig_pixel_dist;
+        attacked = false;
     }
 }
 </string>
