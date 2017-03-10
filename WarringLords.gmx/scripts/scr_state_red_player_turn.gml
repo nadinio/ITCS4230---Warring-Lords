@@ -5,25 +5,43 @@ if (instance_position(mouse_x, mouse_y, par_player) && mouse_check_button_presse
     player = instance_nearest(mouse_x, mouse_y, par_player);
     global.selected = player;
     
-    if(instance_exists(obj_move_square))// for preventing over lapping move squares when selecting between multiply assets
-    {
-        with(obj_move_square) {instance_destroy();}
-    }
-    
+    with(obj_move_square) {instance_destroy();}
+    with (obj_attack_square) {instance_destroy();}
+
     scr_place_move_squares();
 }
 
 // Move to only move squares
-if (global.selected != noone && mouse_check_button_pressed(mb_right) && instance_position(mouse_x, mouse_y, obj_move_square))
+if (global.selected != noone && mouse_check_button_pressed(mb_right))
 {
-    global.moving = true;    
-
-    with (obj_move_square){instance_destroy();} // Get rid of the move squares affter they have been used
-    
-    with (global.selected)
+    if(instance_position(mouse_x, mouse_y, obj_move_square))
     {
-        scr_navigation(x ,y, round(mouse_x/32)*32, round(mouse_y/32)*32);
-        pixel_dist -= path_get_length(global.navigate); // get the pixel lenght traveled - use up move points
+        global.moving = true; 
+        with (obj_attack_square) {instance_destroy();}   
+        with (obj_move_square){instance_destroy();} // Get rid of the move squares affter they have been used
+        
+        with (global.selected)
+        {
+            scr_navigation(x ,y, round(mouse_x/32)*32, round(mouse_y/32)*32);
+            pixel_dist -= path_get_length(global.navigate); // get the pixel lenght traveled - use up move points
+        }
+    }
+    
+    if(instance_position(mouse_x, mouse_y, obj_attack_square))
+    {
+        global.attacking = true;
+        with(global.selected)
+        {
+            if (distance_to_object(obj_attack_square) > 13)
+            {
+                global.moving = true;
+                scr_calculate_dist();
+                scr_navigation(x, y, round(global.attack_trave_x/32)*32, round(global.attack_trave_y/32)*32);
+                pixel_dist -= path_get_length(global.navigate);
+            }
+        }
+        with (obj_move_square) {instance_destroy();}
+        with (obj_attack_square) {instance_destroy();}
     }
 }
 
@@ -38,5 +56,13 @@ if (global.moving == true)
             cur_node_y = y;
             global.moving = false;
         }
+    }
+}
+
+if(global.attacking == true)
+{
+    if(global.moving == false)
+    {
+        with(global.selected) {scr_mele_attack();}
     }
 }

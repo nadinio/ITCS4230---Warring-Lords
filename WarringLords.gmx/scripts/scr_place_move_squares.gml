@@ -9,6 +9,23 @@ with (par_player)
     }
 }
 
+with (par_enemy)
+{
+    if (self.id != global.selected.id)  
+    {
+        mp_grid_add_rectangle(global.map_grid, x, y, x, y)
+    }
+}
+
+with (par_player)
+{
+    if (self.id != global.selected.id)  
+    {
+        //mp_grid_add_cell(global.map_grid, round(x/32)-2, round(y/32)-4); // another version of the same thing 
+        mp_grid_add_rectangle(global.map_grid, x, y, x, y)
+    }
+}
+
 // Check entire grid to see where we can move
 for (i=0; i<18; i+=1;)
 {

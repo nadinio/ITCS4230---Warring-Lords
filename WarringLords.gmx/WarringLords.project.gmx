@@ -50,6 +50,7 @@
     <sprites name="Display_items">
       <sprite>sprites\spr_Team_Name</sprite>
       <sprite>sprites\spr_move_square</sprite>
+      <sprite>sprites\spr_attack_square</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -61,8 +62,11 @@
     <script>scripts\scr_navigation.gml</script>
     <script>scripts\scr_state_red_player_turn.gml</script>
     <script>scripts\scr_place_move_squares.gml</script>
+    <script>scripts\scr_calculate_dist.gml</script>
+    <script>scripts\scr_mele_attack.gml</script>
   </scripts>
   <objects name="objects">
+    <object>objects\par_enemy</object>
     <object>objects\par_player</object>
     <objects name="Menu">
       <object>objects\obj_start_Button</object>
@@ -72,6 +76,7 @@
     </objects>
     <objects name="Assets">
       <object>objects\obj_heavy_in</object>
+      <object>objects\obj_en_heavy_in</object>
     </objects>
     <objects name="game_Mechanics_controler_stuff">
       <object>objects\obj_resolution_control</object>
@@ -82,6 +87,7 @@
       <object>objects\obj_Team_Name</object>
       <object>objects\obj_move_square</object>
       <object>objects\obj_Warring_Lords_Logo</object>
+      <object>objects\obj_attack_square</object>
     </objects>
     <objects name="splash_controler">
       <object>objects\obj_splashcontroller</object>
