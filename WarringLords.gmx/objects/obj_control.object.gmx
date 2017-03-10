@@ -90,8 +90,6 @@ if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
         pixel_dist = orig_pixel_dist;
     }
 }
-
-with (par_player) {pixel_dist = orig_pixel_dist;} // Removing the need to press r.
 </string>
           </argument>
         </arguments>

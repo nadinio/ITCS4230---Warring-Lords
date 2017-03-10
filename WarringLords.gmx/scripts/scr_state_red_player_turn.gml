@@ -36,7 +36,7 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))
             {
                 global.moving = true;
                 scr_calculate_dist();
-                scr_navigation(x, y, round(global.attack_trave_x/32)*32, round(global.attack_trave_y/32)*32);
+                scr_navigation(x, y, round(global.attack_travel_x/32)*32, round(global.attack_travel_y/32)*32);
                 pixel_dist -= path_get_length(global.navigate);
             }
         }
