@@ -62,9 +62,13 @@
     <script>scripts\scr_navigation.gml</script>
     <script>scripts\scr_state_red_player_turn.gml</script>
     <script>scripts\scr_place_move_squares.gml</script>
+    <script>scripts\scr_place_move_squares_ai.gml</script>
     <script>scripts\scr_calculate_dist.gml</script>
     <script>scripts\scr_mele_attack.gml</script>
     <script>scripts\scr_ranged_attack.gml</script>
+    <script>scripts\scr_state_ai_turn.gml</script>
+    <script>scripts\scr_mele_attack_ai.gml</script>
+    <script>scripts\scr_ranged_attack_ai.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\par_enemy</object>
@@ -78,6 +82,7 @@
     <objects name="Assets">
       <object>objects\obj_heavy_in</object>
       <object>objects\obj_en_heavy_in</object>
+      <object>objects\obj_en_apprentice</object>
       <object>objects\obj_apprentice</object>
       <object>objects\obj_spell_circle</object>
     </objects>
@@ -89,8 +94,10 @@
     <objects name="Display_Items">
       <object>objects\obj_Team_Name</object>
       <object>objects\obj_move_square</object>
+      <object>objects\obj_move_square_ai</object>
       <object>objects\obj_Warring_Lords_Logo</object>
       <object>objects\obj_attack_square</object>
+      <object>objects\obj_attack_square_ai</object>
       <object>objects\obj_damage_dealt</object>
     </objects>
     <objects name="splash_controler">

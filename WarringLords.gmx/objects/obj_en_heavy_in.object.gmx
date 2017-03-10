@@ -52,6 +52,13 @@ defence = 100;
             <string>/// Variables
 image_xscale = -1;
 
+type = 1;
+moved = false;
+attacked = false;
+
+pixel_dist = 100;
+orig_pixel_dist = pixel_dist;
+
 cur_node_x = x;
 cur_node_y = y;
 </string>
