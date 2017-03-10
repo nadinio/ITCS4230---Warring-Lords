@@ -21,24 +21,25 @@ with (global.ai_selected)
         nearest_move = instance_nearest(nearest_target.x, nearest_target.y, obj_move_square_ai);
         nearest_attack = instance_nearest(x, y, obj_attack_square_ai);
         
+        // Mele player actions
         if (type == 1)
         {
             if(moved == false)
                 scr_navigation(x, y, round(nearest_move.x/32)*32, round(nearest_move.y/32)*32);
             if(path_index == -1)
             {
-                if(moved == false)
-                    moved = true;
+                        
+                moved = true;
                 
-                if(instance_exists(obj_attack_square_ai)) 
-                    global.enemy = instance_position(nearest_attack.x, nearest_attack.y, par_player);
-                
+                if(instance_exists(obj_attack_square_ai))
+                    global.enemy = instance_position(nearest_attack.x, nearest_attack.y, par_player);   
+                    
                 if (global.enemy != noone)
                     scr_mele_attack_ai();
                 else
-                    attacked = true;
+                    attacked = true;                                                    
                     
-                with(obj_move_squares_ai)
+                with(obj_move_square_ai)
                     instance_destroy();
                     
                 curr_node_x = round(x/32)*32;
@@ -54,6 +55,7 @@ with (global.ai_selected)
             }
         }
         
+        // Ranged player actions
         if(type == 2)
         {
             if (acquired_targets == false)
@@ -82,21 +84,20 @@ with (global.ai_selected)
         }
         
         if(path_index == -1)
-            if(moved == false)
+        {        
+            moved = true;
+            cur_node_x = round(x/32)*32;
+            cur_node_y = round(y/32)*32;
+            with(obj_move_square_ai)
+                instance_destroy();   
+            if(attacked == true && moved == true)
             {
-                moved = true;
-                cur_node_x = round(x/32)*32;
-                cur_node_y = round(x/32)*32;
-                with(obj_move_square_ai)
-                    instance_destroy();   
-                if(attacked == true && moved == true)
-                {
-                        global.enemy = noone;
-                        global.ai_id += 1;
-                        global.ai_selected = noone;
-                        global.ai_activated = false;
-                }
-            }                   
+                    global.enemy = noone;
+                    global.ai_id += 1;
+                    global.ai_selected = noone;
+                    global.ai_activated = false;
+            } 
+        }                    
      }
 }
 
@@ -104,6 +105,7 @@ if (global.ai_id > instance_number(par_enemy))
 {
     global.state = states.red_turn;
     global.ai_selected = noone;
+    global.enemy = noone;
     global.ai_id = 1;
     with (par_enemy)
     {

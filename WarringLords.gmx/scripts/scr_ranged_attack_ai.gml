@@ -3,7 +3,7 @@ instance_create(x+5, y-10, my_projectile);
 with(my_projectile)
 {
     image_angle = direction;
-    move_towards_point(global.enemy.x, global.enemy.y, 15);
+    move_towards_point(global.enemy.x, global.enemy.y-10, 15);
     
     if(instance_place(x, y, global.enemy))
     {
@@ -23,6 +23,5 @@ with(my_projectile)
         if(instance_number(par_player) < 1)
             global.state = states.fail_state;
             
-        instance_destroy();
      }   
 }
