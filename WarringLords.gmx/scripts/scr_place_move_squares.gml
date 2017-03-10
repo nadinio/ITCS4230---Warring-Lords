@@ -1,10 +1,12 @@
 // This is used to create collisons 
-mp_grid_clear_rectangle(global.map_grid,0,0,640,360);
+mp_grid_clear_rectangle(global.map_grid, 0, 0, 640, 360);
 with (par_player)
 {
-    if (self.id != global.selected.id) 
-    //{mp_grid_add_cell(global.map_grid, round(x/32)-2, round(y/32)-4);} // another version of the same thing 
-    {mp_grid_add_rectangle(global.map_grid,x,y,x,y)}
+    if (self.id != global.selected.id)  
+    {
+        //mp_grid_add_cell(global.map_grid, round(x/32)-2, round(y/32)-4); // another version of the same thing 
+        mp_grid_add_rectangle(global.map_grid, x, y, x, y)
+    }
 }
 
 // Check entire grid to see where we can move
@@ -24,15 +26,15 @@ for (i=0; i<18; i+=1;)
             instance_create(i_x,row,obj_move_square);
         }
         /*
-        else//turn all points out of reach off maybe remove later
-        {
-            mp_grid_add_rectangle(global.map_grid,i_x,row,i_x,row);
+        else //turn all points out of reach off maybe remove later
+        {    // Gltichy af. Turned off.
+            mp_grid_add_rectangle(global.map_grid, i_x, row, i_x, row);
         }
         */
     }
     if (row > 320)
     {
-        row = 0;
+        row = 128;
         i = 20;
     }
 }
