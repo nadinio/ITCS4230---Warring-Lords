@@ -29,6 +29,7 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))
     
     if(instance_position(mouse_x, mouse_y, obj_attack_square))
     {
+        global.enemy = instance_position(mouse_x, mouse_y, par_enemy);
         global.attacking = true;
         with(global.selected)
         {

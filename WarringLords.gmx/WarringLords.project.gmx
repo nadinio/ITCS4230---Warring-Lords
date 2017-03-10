@@ -92,6 +92,7 @@
     <objects name="splash_controler">
       <object>objects\obj_splashcontroller</object>
     </objects>
+    <object>objects\obj_damage_dealt</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_splash</room>

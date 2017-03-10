@@ -32,6 +32,8 @@ global.state = states.red_turn;
 global.selected = noone;
 global.moving = false;
 global.attacking = false;
+
+global.damage_dealt = 0;
 </string>
           </argument>
         </arguments>
