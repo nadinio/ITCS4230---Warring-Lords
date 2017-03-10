@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Window  Size Variables
+            <string>///Window Size Variables
 
 global.window_scale = 1;
 display_width = display_get_width();
@@ -57,7 +57,7 @@ set_position = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Refresh the windo position
+            <string>/// Refresh the window position
 
 window_width = window_get_width()/2;
 window_height = window_get_height()/2;
@@ -88,6 +88,7 @@ set_position = false;
             <kind>1</kind>
             <string>/// Perfecct for options menu - Resolution Control
 
+// Scale up if + is pressed
 if (keyboard_check_pressed(vk_add) &amp;&amp; display_width &gt; 640 * global.window_scale)
 {
     global.window_scale += 0.5;
@@ -104,7 +105,8 @@ if (keyboard_check_pressed(vk_add) &amp;&amp; display_width &gt; 640 * global.wi
          }
     }
 }
-else if (keyboard_check_pressed(vk_subtract) &amp;&amp; global.window_scale &gt;= 1)
+// Scale down if - is pressed
+if (keyboard_check_pressed(vk_subtract) &amp;&amp; global.window_scale &gt;= 1)
 {
     global.window_scale -= 0.5;
     window_set_size (640 * global.window_scale, 360 * global.window_scale);

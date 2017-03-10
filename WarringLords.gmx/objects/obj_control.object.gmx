@@ -30,7 +30,10 @@
 //turns red when using a variable. red player goes first
 global.state = states.red_turn; 
 global.selected = noone;
-global.moving =false;
+global.moving = false;
+global.attacking = false;
+
+global.damage_dealt = 0;
 </string>
           </argument>
         </arguments>
@@ -87,6 +90,7 @@ if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
     with (par_player)
     {
         pixel_dist = orig_pixel_dist;
+        attacked = false;
     }
 }
 </string>
