@@ -4,6 +4,7 @@ var start_y = argument1;
 var end_x = argument2;
 var end_y = argument3;
 
+
 if !(mp_grid_path(global.map_grid, global.navigate, start_x, start_y, end_x, end_y, 1))
 {
     show_message("You cannot move there.");
