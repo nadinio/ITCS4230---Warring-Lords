@@ -59,8 +59,6 @@ moved = false;
 
 acquired_targets = false;
 
-pace = 2;
-
 pixel_dist = 64;
 orig_pixel_dist = pixel_dist;
 

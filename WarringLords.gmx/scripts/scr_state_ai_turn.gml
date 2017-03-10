@@ -5,7 +5,7 @@ if (global.ai_selected == noone)
     if (global.ai_activated == false)
     {
         ai_active = instance_number(par_enemy) - global.ai_id;
-        global.ai_specified = instance_find(par_enemy, ai_active);
+        global.ai_selected = instance_find(par_enemy, ai_active);
         
         scr_place_move_squares_ai();
         global.ai_activated = true;

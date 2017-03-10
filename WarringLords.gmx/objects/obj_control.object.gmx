@@ -86,9 +86,8 @@ row = 128;
             <string>/// State Control
 switch(global.state)
 {
-    case states.red_turn: scr_state_red_player_turn();
-    case states.ai_turn: scr_state_ai_turn();
-    break; 
+    case states.red_turn: scr_state_red_player_turn(); break;
+    case states.ai_turn: scr_state_ai_turn(); break;
 }
 
 if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
