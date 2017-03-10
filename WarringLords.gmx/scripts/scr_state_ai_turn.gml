@@ -59,7 +59,7 @@ with (global.ai_selected)
             if (acquired_targets == false)
             {  
                 with(par_player)
-                    if (distance_to_object(global.ai_selected <= 130))
+                    if (distance_to_object(global.ai_selected) <= 130)
                         instance_create(x, y, obj_attack_square_ai);
                         
                 nearest_attack = instance_nearest(x, y, obj_attack_square_ai);

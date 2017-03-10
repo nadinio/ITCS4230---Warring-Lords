@@ -7,14 +7,13 @@ with(my_projectile)
     
     if(instance_place(x, y, global.enemy))
     {
-        global.damage_dealt = irandom(global.selected.attack);
+        global.damage_dealt = irandom(global.ai_selected.attack);
         global.enemy.defence -= global.damage_dealt;
         
         instance_create(global.enemy.x, global.enemy.y, obj_damage_dealt);
         instance_destroy();
         
         global.attacking = false;
-        global.selected.image_xscale = 1;
         
     
         with(obj_attack_square_ai)
