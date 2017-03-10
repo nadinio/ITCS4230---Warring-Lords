@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>/// Variables
-image_speed = 0;//used to stop the animation
+image_speed = 0;// Used to stop the animation
 
-pixel_dist = 100;
+pixel_dist = 100; // Range of movement
 orig_pixel_dist = pixel_dist;
 
 cur_node_x = x;

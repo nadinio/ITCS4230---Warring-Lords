@@ -30,7 +30,7 @@
 //turns red when using a variable. red player goes first
 global.state = states.red_turn; 
 global.selected = noone;
-global.moving =false;
+global.moving = false;
 </string>
           </argument>
         </arguments>
