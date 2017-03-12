@@ -56,14 +56,20 @@
   <backgrounds name="background">
     <background>background\bk_green</background>
     <background>background\bk_splash</background>
+    <background>background\bk_Battle</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="Red_Player">
+      <script>scripts\scr_state_red_player_turn.gml</script>
+      <script>scripts\scr_red_attack.gml</script>
+      <script>scripts\scr_red_move.gml</script>
+      <script>scripts\scr_red_buy.gml</script>
+    </scripts>
     <script>scripts\scr_navigation.gml</script>
-    <script>scripts\scr_state_red_player_turn.gml</script>
     <script>scripts\scr_place_move_squares.gml</script>
     <script>scripts\scr_calculate_dist.gml</script>
-    <script>scripts\scr_mele_attack.gml</script>
+    <script>scripts\scr_melee_attack.gml</script>
     <script>scripts\scr_ranged_attack.gml</script>
   </scripts>
   <objects name="objects">
@@ -74,6 +80,8 @@
       <object>objects\obj_Exit_Button</object>
       <object>objects\obj_options</object>
       <object>objects\obj_back_button</object>
+      <object>objects\obj_Warring_Lords_Logo</object>
+      <object>objects\obj_Team_Name</object>
     </objects>
     <objects name="Assets">
       <object>objects\obj_heavy_in</object>
@@ -81,16 +89,15 @@
       <object>objects\obj_apprentice</object>
       <object>objects\obj_spell_circle</object>
     </objects>
-    <objects name="game_Mechanics_controler_stuff">
+    <objects name="Controler">
       <object>objects\obj_resolution_control</object>
       <object>objects\obj_control</object>
       <object>objects\obj_grid</object>
     </objects>
-    <objects name="Display_Items">
-      <object>objects\obj_Team_Name</object>
-      <object>objects\obj_move_square</object>
-      <object>objects\obj_Warring_Lords_Logo</object>
+    <objects name="In_Game_GUI">
+      <object>objects\obj_gui</object>
       <object>objects\obj_attack_square</object>
+      <object>objects\obj_move_square</object>
       <object>objects\obj_damage_dealt</object>
     </objects>
     <objects name="splash_controler">
@@ -100,7 +107,9 @@
   <rooms name="rooms">
     <room>rooms\rm_splash</room>
     <room>rooms\rm_Menu</room>
-    <room>rooms\rm_battle_map</room>
+    <rooms name="Battle_Grounds">
+      <room>rooms\rm_battle_map</room>
+    </rooms>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

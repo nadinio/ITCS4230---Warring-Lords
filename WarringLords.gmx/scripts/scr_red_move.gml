@@ -1,8 +1,11 @@
 /*
-    this script needs to draw the 3 buttons to for attack, move, buy, in the GUI section (just make it an object)
+    this script needs to allow the player to click on and move there assets.
+    just handle the move squares only
     
-    then link to those scripts
+    display the end turn button, and handle its function (just make it an object)
 */
+
+
 
 if (instance_position(mouse_x, mouse_y, par_player) && mouse_check_button_pressed(mb_left)) // If you click on an asset
 {
@@ -98,9 +101,3 @@ if(global.attacking == true)
            
             attacked = true;              
         }
-        
-        
-            
-        
-    
-
