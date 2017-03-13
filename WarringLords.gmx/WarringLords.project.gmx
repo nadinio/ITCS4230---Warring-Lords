@@ -51,6 +51,7 @@
       <sprite>sprites\spr_Team_Name</sprite>
       <sprite>sprites\spr_move_square</sprite>
       <sprite>sprites\spr_attack_square</sprite>
+      <sprite>sprites\spr_death</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -62,19 +63,56 @@
   <scripts name="scripts">
     <scripts name="Red_Player">
       <script>scripts\scr_state_red_player_turn.gml</script>
+      <script>scripts\scr_red_place_move_squares.gml</script>
       <script>scripts\scr_red_attack.gml</script>
       <script>scripts\scr_red_move.gml</script>
       <script>scripts\scr_red_buy.gml</script>
     </scripts>
+    <scripts name="Blue_Player">
+      <script>scripts\scr_state_blue_player_turn.gml</script>
+      <script>scripts\scr_blue_place_move_squares.gml</script>
+      <script>scripts\scr_blue_move.gml</script>
+    </scripts>
     <script>scripts\scr_navigation.gml</script>
-    <script>scripts\scr_place_move_squares.gml</script>
     <script>scripts\scr_calculate_dist.gml</script>
     <script>scripts\scr_melee_attack.gml</script>
     <script>scripts\scr_ranged_attack.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\par_enemy</object>
-    <object>objects\par_player</object>
+    <objects name="Assets">
+      <objects name="Red_Assets">
+        <objects name="Military">
+          <object>objects\obj_red_heavy_in</object>
+        </objects>
+        <object>objects\obj_red_capital</object>
+      </objects>
+      <objects name="Blue_Assets">
+        <object>objects\obj_blue_heavy_in</object>
+        <object>objects\obj_blue_capital</object>
+      </objects>
+      <objects name="Test_Assets">
+        <object>objects\obj_heavy_in</object>
+        <object>objects\obj_en_heavy_in</object>
+        <object>objects\obj_apprentice</object>
+        <object>objects\obj_spell_circle</object>
+      </objects>
+    </objects>
+    <objects name="Controler">
+      <object>objects\obj_control</object>
+      <object>objects\obj_grid</object>
+      <object>objects\obj_resolution_control</object>
+    </objects>
+    <objects name="In_Game_GUI">
+      <object>objects\obj_gui</object>
+      <object>objects\obj_damage_dealt</object>
+      <object>objects\obj_attack_square</object>
+      <object>objects\obj_move_square</object>
+      <object>objects\obj_red_move_square</object>
+      <object>objects\obj_blue_move_square</object>
+    </objects>
+    <objects name="splash_controler">
+      <object>objects\obj_splashcontroller</object>
+    </objects>
     <objects name="Menu">
       <object>objects\obj_start_Button</object>
       <object>objects\obj_Exit_Button</object>
@@ -83,25 +121,11 @@
       <object>objects\obj_Warring_Lords_Logo</object>
       <object>objects\obj_Team_Name</object>
     </objects>
-    <objects name="Assets">
-      <object>objects\obj_heavy_in</object>
-      <object>objects\obj_en_heavy_in</object>
-      <object>objects\obj_apprentice</object>
-      <object>objects\obj_spell_circle</object>
-    </objects>
-    <objects name="Controler">
-      <object>objects\obj_resolution_control</object>
-      <object>objects\obj_control</object>
-      <object>objects\obj_grid</object>
-    </objects>
-    <objects name="In_Game_GUI">
-      <object>objects\obj_gui</object>
-      <object>objects\obj_attack_square</object>
-      <object>objects\obj_move_square</object>
-      <object>objects\obj_damage_dealt</object>
-    </objects>
-    <objects name="splash_controler">
-      <object>objects\obj_splashcontroller</object>
+    <objects name="Parents">
+      <object>objects\par_red</object>
+      <object>objects\par_blue</object>
+      <object>objects\par_player</object>
+      <object>objects\par_enemy</object>
     </objects>
   </objects>
   <rooms name="rooms">

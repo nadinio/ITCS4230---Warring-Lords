@@ -54,7 +54,11 @@ y_pos = 1;
 alpha += 0.01;
 y_pos += 1;
 
-draw_text_colour(x-8, y-y_pos, global.damage_dealt, 0, 0, 0, 0, 1- alpha);
+draw_text_colour(x-8, (y-y_pos)-15, "-"+string(global.damage_dealt), 0, 0, 0, 0, 1- alpha);
+
+output = (string(global.current_damage)+"/"+string(global.max_enemy_defence));
+
+draw_text_colour(x-8, y-y_pos, output, 0, 0, 0, 0, 1- alpha);
 
 if(alpha == 1) {instance_destroy()};
 </string>

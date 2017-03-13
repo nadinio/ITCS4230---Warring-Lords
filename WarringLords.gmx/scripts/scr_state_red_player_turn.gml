@@ -3,75 +3,86 @@
     
     then link to those scripts
 */
-
-if (instance_position(mouse_x, mouse_y, par_player) && mouse_check_button_pressed(mb_left)) // If you click on an asset
+if (instance_position(mouse_x,mouse_y,par_red) && mouse_check_button_pressed(mb_left))//if you click on an object that is a par_red object / or its child
 {
-    if (global.moving == false && global.attacking == false)
+    if (global.moving == false && global.attacking == false)//if you haven't moved or attacked
     {
-        // When mouse clicks asset, select that asset
         var player;
-        player = instance_nearest(mouse_x, mouse_y, par_player);
+        player = instance_nearest(mouse_x,mouse_y,par_red);
+        
         global.selected = player;
         
-        with (obj_move_square) {instance_destroy();}
-        with (obj_attack_square) {instance_destroy();}
-    
-        // Creates attack square if a ranged player is in range.
-        if(player.type == 2)
-            if(player.attacked == false)
-                with(par_enemy)
-                    if(distance_to_object(global.selected) <= 130)
-                        instance_create(x, y, obj_attack_square);
-            
+        with(obj_red_move_square) {instance_destroy();}
+        with (obj_attack_square){instance_destroy();}
         
-        scr_place_move_squares();
+        if (player.type ==2)//if the attack type is ranged
+        {
+            if (player.attacked == false)
+            {
+                with (par_blue)
+                {
+                    if (distance_to_object(global.selected) <= 130) {instance_create(x,y,obj_attack_square);}//we place an attack square at a distances
+                }
+            }
+        }       
+        scr_red_place_move_squares();
+    }
+}
+else if (!instance_position(mouse_x,mouse_y,par_red)&& mouse_check_button_pressed(mb_left))// if the object isnt from the par_red
+{
+    if (global.moving == false && global.attacking == false)//and were not moving or attacking
+    {
+        global.selected = noone;//we have selected no one / get rid of the stuff
+        with (obj_red_move_square) {instance_destroy();}
+        with (obj_attack_square) {instance_destroy();}
     }
 }
 
 
-// Move to only move squares
-if (global.selected != noone && mouse_check_button_pressed(mb_right))
+
+if (global.selected != noone && mouse_check_button_pressed(mb_right))//if no one is selected and we right click
 {
-    if(instance_position(mouse_x, mouse_y, obj_move_square))
+    if (instance_position(mouse_x,mouse_y,obj_red_move_square))// if we clicked a move square
     {
-        global.moving = true; 
-        with (obj_attack_square) {instance_destroy();}   
-        with (obj_move_square){instance_destroy();} // Get rid of the move squares affter they have been used
-        
+        global.moving = true;    
+        with (obj_red_move_square){instance_destroy();}//get rid of the move squares after they have been used
+        with (obj_attack_square){instance_destroy();}
         with (global.selected)
         {
-            scr_navigation(x ,y, round(mouse_x/32)*32, round(mouse_y/32)*32);
+            
+            scr_navigation(x,y,round(mouse_x/32)*32,round(mouse_y/32)*32,pace);
             pixel_dist -= path_get_length(global.navigate); // get the pixel lenght traveled - use up move points
         }
     }
-    // Attack Enemy
-    if(instance_position(mouse_x, mouse_y, obj_attack_square))
+    else if (instance_position(mouse_x,mouse_y,obj_attack_square))//if we right clicked an attack square
     {
-        global.enemy = instance_position(mouse_x, mouse_y, par_enemy);
+        global.enemy = instance_position(mouse_x,mouse_y,par_blue);//set the global enemy variable to what we clicked
         global.attacking = true;
-        with(global.selected)
+        with (global.selected) 
         {
-            attacked = true; // Will set the player attack variables to true. 1 attack per turn.
-            
-            // Mele attack
-            if(type == 1)
-                if (distance_to_object(obj_attack_square) > 13)
+            attacked = true;
+            if (type == 1)//if melee attack
+            {
+                if (distance_to_object(global.enemy)>13)
                 {
-                    global.moving = true;
+                    global.moving =true;
                     scr_calculate_dist();
-                    scr_navigation(x, y, round(global.attack_travel_x/32)*32, round(global.attack_travel_y/32)*32);
+                    
+                    scr_navigation(x,y,round(global.attack_travel_x/32)*32,round(global.attack_travel_y/32)*32,pace);
                     pixel_dist -= path_get_length(global.navigate);
                 }
-            // Ranged attack
-            //if(type == 2)
-                // Stuff?
+            }
+            else if (type == 2)// this would be used if we had complex animation but o well
+            {
+                if (global.enemy.x < x-5) {image_xscale = -1;}// used to invert the attacker 
+            }
         }
-        with (obj_move_square) {instance_destroy();}
-        with (obj_attack_square) {instance_destroy();}
+        with (obj_red_move_square){instance_destroy();}
+        with (obj_attack_square){instance_destroy();}
     }
 }
 
-// used to set to the objects current node
+// used to set to the objects current node/ move the asset
 if (global.moving == true)
 {
     with (global.selected)
@@ -84,23 +95,16 @@ if (global.moving == true)
         }
     }
 }
-
-// Execute attack scripts
-if(global.attacking == true)
-    if(global.moving == false)
-        with(global.selected)
-        { 
-            if(type == 1)
-                scr_melee_attack();
-                
-            if(type == 2)
-                scr_ranged_attack();
-           
-            attacked = true;              
+// setting and using the attack scripts
+if (global.attacking == true)
+{
+    if (global.moving == false)//can't attack and move at the same time
+    {
+        with (global.selected) 
+        {
+            if(type==1){scr_melee_attack();}
+            else if (type==2) {scr_ranged_attack();}
+            attacked=true;
         }
-        
-        
-            
-        
-    
-
+    }
+}
