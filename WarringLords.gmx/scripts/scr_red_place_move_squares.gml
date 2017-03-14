@@ -22,16 +22,6 @@ for (i=0; i<18; i+=1;)
     if (mp_grid_path(global.map_grid, global.navigate, global.selected.cur_node_x, global.selected.cur_node_y, i_x, row, 1))
     {
         if (path_get_length(global.navigate) <= global.selected.pixel_dist)//if this square is in range 
-<<<<<<< HEAD
-        {instance_create(i_x,row,obj_red_move_square);}//make a move_square - whitch in turn would place an attack square
-        
-        else //turn all points out of reach off maybe remove later
-        {mp_grid_add_rectangle(global.map_grid, i_x, row, i_x, row);}
-    }
-    else 
-    {mp_grid_add_rectangle(global.map_grid, i_x, row, i_x, row);}
-    
-=======
         {instance_create(i_x,row,obj_red_move_square);}//make a move_square - whitch in turn would place an attack square 
         /*      
         else //turn all points out of reach off maybe remove later
@@ -40,7 +30,6 @@ for (i=0; i<18; i+=1;)
     /*
     else 
     {mp_grid_add_rectangle(global.map_grid, i_x, row, i_x, row);}*/
->>>>>>> final
     
     if (i_x >= 576) // 576 is last row (18 rows * 32 pixels high)
     {

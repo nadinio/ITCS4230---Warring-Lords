@@ -26,11 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>/// Variables
-<<<<<<< HEAD
-image_index = 1;// witch image to use
-=======
 image_index = 2;// witch image to use
->>>>>>> final
 image_speed = 0;// Used to stop the animation
 
 attacked = false;// we only attack once a round
@@ -68,17 +64,10 @@ death_anim = spr_death;
           <argument>
             <kind>1</kind>
             <string>/// Stats
-<<<<<<< HEAD
-
-attack = 0;
-defence = 100;
-max_health = 100;
-=======
 name = "Capital";
 attack = 0;
 defence = 200;
 max_health = 200;
->>>>>>> final
 
 //critcal game stats
 military =4;

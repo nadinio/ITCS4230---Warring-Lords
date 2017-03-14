@@ -87,44 +87,10 @@ row = 128;
 switch(global.state)
 {
     case states.red_turn: scr_state_red_player_turn(); break;
-<<<<<<< HEAD
-    case states.blue_turn: scr_state_blue_player_turn(); break;// fix later for blue team state
-    break; 
-}
-
-//fix this for later or comment it out 
-if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
-{
-    with (par_red)
-    {
-        pixel_dist = orig_pixel_dist;
-        attacked = false;
-    }
-    
-    with (par_blue)
-    {
-        pixel_dist = orig_pixel_dist;
-        attacked = false;
-    }
-}
-
-if(instance_number(obj_blue_capital)&lt;= 0)
-{
-    show_message("Red Team Wins")
-    room_goto(rm_Menu);
-}
-else if(instance_number(obj_red_capital)&lt;= 0)
-{
-    show_message("Blue Team Wins")
-    room_goto(rm_Menu);
-}
-
-=======
     case states.blue_turn: scr_state_blue_player_turn(); break;
     break; 
 }
 
->>>>>>> final
 
 
 
@@ -140,11 +106,6 @@ else if(instance_number(obj_red_capital)&lt;= 0)
           </argument>
         </arguments>
       </action>
-<<<<<<< HEAD
-    </event>
-    <event eventtype="8" enumb="0">
-=======
->>>>>>> final
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -161,8 +122,6 @@ else if(instance_number(obj_red_capital)&lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
-<<<<<<< HEAD
-=======
             <string>///Cheat Code
 /*
     a cheat for the game to make grading easyer press r the rest move and attack variables 
@@ -242,7 +201,6 @@ else if(instance_number(obj_red_capital)&lt;= 0)
         <arguments>
           <argument>
             <kind>1</kind>
->>>>>>> final
             <string>/// End Turn Button
 
 var hovering = 0; 
@@ -273,21 +231,6 @@ if mouse_check_button_pressed(mb_left) &amp;&amp; hovering &gt; 0 //If the mouse
     switch (global.state)
     {
         case states.red_turn: 
-<<<<<<< HEAD
-        {
-            with (par_red)
-            {
-                /*reset the move and attack variables for the red player after his turn ends*/
-                pixel_dist = orig_pixel_dist;
-                attacked = false;
-            }
-            if(instance_number(obj_blue_capital)&gt; 0){global.state = states.blue_turn;}
-            else 
-            { 
-                show_message("Red Team Wins")
-                room_goto(rm_Menu);
-            }
-=======
         {   if(instance_number(obj_blue_capital)&gt; 0)
             {
                 global.state = states.blue_turn;
@@ -299,27 +242,11 @@ if mouse_check_button_pressed(mb_left) &amp;&amp; hovering &gt; 0 //If the mouse
                     attacked = false;
                 }
             }
->>>>>>> final
         } 
         break;
         
         case states.blue_turn: 
         {
-<<<<<<< HEAD
-            with (par_blue)
-            {
-                /*reset the move and attack variables for the blue player after his turn ends*/
-                pixel_dist = orig_pixel_dist;
-                attacked = false;
-            }
-            if(instance_number(obj_red_capital)&gt; 0){global.state = states.red_turn;} 
-            else 
-            {
-                show_message("Blue Team Wins")
-                room_goto(rm_Menu);
-            }
-            //show_message("its is now red players turn")
-=======
             if(instance_number(obj_red_capital)&gt; 0)
             {
                 global.state = states.red_turn;
@@ -331,11 +258,9 @@ if mouse_check_button_pressed(mb_left) &amp;&amp; hovering &gt; 0 //If the mouse
                     attacked = false;
                 }
             } 
->>>>>>> final
         } 
         break;  
     };
-    show_message("Do Not cheat")
 };
 
 //Lastly we set hovering back to 0
