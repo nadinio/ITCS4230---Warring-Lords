@@ -89,14 +89,14 @@ set_position = false;
             <string>/// Perfecct for options menu - Resolution Control
 
 // Scale up if + is pressed
-if (keyboard_check_pressed(vk_add) &amp;&amp; display_width &gt; 640 * global.window_scale)
+if (keyboard_check_pressed(vk_add) &amp;&amp; display_width &gt; 800 * global.window_scale)
 {
     global.window_scale += 0.5;
     
-    window_set_size(640 * global.window_scale, 360 * global.window_scale);
+    window_set_size(800 * global.window_scale, 360 * global.window_scale);
     
-    if (display_width &lt;= 640 * global.window_scale) {window_set_position(0,0);}
-    else if (display_width &gt; 640 * global.window_scale)
+    if (display_width &lt;= 800 * global.window_scale) {window_set_position(0,0);}
+    else if (display_width &gt; 800 * global.window_scale)
     {
          if (set_position == false)
          {
@@ -109,9 +109,9 @@ if (keyboard_check_pressed(vk_add) &amp;&amp; display_width &gt; 640 * global.wi
 if (keyboard_check_pressed(vk_subtract) &amp;&amp; global.window_scale &gt;= 1)
 {
     global.window_scale -= 0.5;
-    window_set_size (640 * global.window_scale, 360 * global.window_scale);
-    if (display_width &lt;= 640 * global.window_scale) {window_set_position(0,0);}
-    else if (display_width &gt; 640 * global.window_scale)
+    window_set_size (800 * global.window_scale, 360 * global.window_scale);
+    if (display_width &lt;= 800 * global.window_scale) {window_set_position(0,0);}
+    else if (display_width &gt; 800 * global.window_scale)
     {
          if (set_position == false)
          {

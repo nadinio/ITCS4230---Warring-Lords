@@ -30,10 +30,15 @@
 //turns red when using a variable. red player goes first
 global.state = states.red_turn; 
 global.selected = noone;
+//global.blue_selected = noone;
+global.enemy = noone;
 global.moving = false;
 global.attacking = false;
 
+//Asset variables
 global.damage_dealt = 0;
+global.max_enemy_defence =0;
+global.current_damage =0;
 </string>
           </argument>
         </arguments>
@@ -60,29 +65,6 @@ row = 128;
           </argument>
         </arguments>
       </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// button variables
-
-hovering = 0; 
-</string>
-          </argument>
-        </arguments>
-      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -105,13 +87,126 @@ hovering = 0;
 switch(global.state)
 {
     case states.red_turn: scr_state_red_player_turn(); break;
-    case states.blue_turn: scr_state_red_player_turn(); break;// fix later for blue team state
+    case states.blue_turn: scr_state_blue_player_turn(); break;
     break; 
 }
 
 
-if point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),615,10,780,60) &amp;&amp; hovering = 0// check for mouse hovering 
+
+
+
+
+
+
+
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Cheat Code
+/*
+    a cheat for the game to make grading easyer press r the rest move and attack variables 
+    make it the red players turn and give the red plaer 10 gold
+*/
+if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
+{   
+    global.state = states.red_turn;
+    obj_red_capital.gold += 10;
+    with (par_red)
+    {
+        pixel_dist = orig_pixel_dist;
+        attacked = false;
+
+    }
+    with (par_blue)
+    {
+        pixel_dist = orig_pixel_dist;
+        attacked = false;  
+    }
+    
+    
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Check for End of Game 
+/*
+    the game ends when one of the teams capitals is destroyed
+*/
+if(instance_number(obj_blue_capital)&lt;= 0)
 {
+    show_message("Red Team Wins")
+    room_goto(rm_Menu);
+}
+else if(instance_number(obj_red_capital)&lt;= 0)
+{
+    show_message("Blue Team Wins")
+    room_goto(rm_Menu);
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// End Turn Button
+
+var hovering = 0; 
+/****************************End Turn Button*************************************************/
+if (point_in_rectangle(window_mouse_get_x(),window_mouse_get_y(),615,300,780,330) &amp;&amp; hovering = 0)// check for mouse hovering 
+{//this hover detection doesnt scales well
     draw_set_alpha(0.8); //If the mouse is in the the area of our button then we set the opacity to 0.8
     hovering = 1; //Set the hovering to 1 since we are hovering over the first button
 };
@@ -119,44 +214,50 @@ else //If the mouse is not inside the point
 {
     draw_set_alpha(0.5); //Set the alpha back to normal
 };
-
+/*making the button and the text*/
 draw_set_color(c_gray); //Set the color to gray for our button 
-draw_rectangle(615,10,780,60,false); //Draw our button
+draw_rectangle(615,300,780,330,false); //Draw our button
 draw_set_color(c_black); //Set the color to black 
 draw_set_halign(fa_center); //Center text (horizontal)
 draw_set_valign(fa_center); //Center text (verticle)
-draw_text(700, 60,"End Turn"); //Draw our button text
+draw_text(700, 315,"End Turn"); //Draw our button text
 
+/*bug testing code*/
+//draw_text(700, 60,global.state);
 
+/*handle what happens when the button is pressed */
 if mouse_check_button_pressed(mb_left) &amp;&amp; hovering &gt; 0 //If the mouse button is pressed &amp; we are hovering over a button
 {
-    switch global.states
+    switch (global.state)
     {
-        case red_turn: 
-        {
-            with (par_player)
+        case states.red_turn: 
+        {   if(instance_number(obj_blue_capital)&gt; 0)
             {
-                pixel_dist = orig_pixel_dist;
-                attacked = false;
+                global.state = states.blue_turn;
+                obj_red_capital.gold += 2;
+                with (par_red)
+                {
+                    /*reset the move and attack variables for the red player after his turn ends*/
+                    pixel_dist = orig_pixel_dist;
+                    attacked = false;
+                }
             }
-            if(instance_number(par_enemy)&gt; 0) {global.state = states.blue_turn;} // if blue team has any units its there turn 
-            /*this if will need to be modifed so that when the capital is destroyed the game ends*/
-            
-            show_message("its is now blue players turn")
         } 
         break;
         
-        case blue_turn: 
+        case states.blue_turn: 
         {
-            with (par_player)
+            if(instance_number(obj_red_capital)&gt; 0)
             {
-                pixel_dist = orig_pixel_dist;
-                attacked = false;
-            }
-            if(instance_number(par_enemy)&gt; 0) {global.state = states.red_turn;} // if blue team has any units its there turn 
-            /*this if will need to be modifed so that when the capital is destroyed the game ends*/
-            
-            show_message("its is now red players turn")
+                global.state = states.red_turn;
+                obj_blue_capital.gold += 3;
+                with (par_blue)
+                {
+                    /*reset the move and attack variables for the blue player after his turn ends*/
+                    pixel_dist = orig_pixel_dist;
+                    attacked = false;
+                }
+            } 
         } 
         break;  
     };
@@ -164,31 +265,6 @@ if mouse_check_button_pressed(mb_left) &amp;&amp; hovering &gt; 0 //If the mouse
 
 //Lastly we set hovering back to 0
 hovering = 0;
-
-
-if (keyboard_check_pressed(ord("R")))// pressing r will now reset move points
-{
-    with (par_player)
-    {
-        pixel_dist = orig_pixel_dist;
-        attacked = false;
-    }
-    if(instance_number(par_enemy)&gt; 0)
-    {global.state = states.blue_turn;}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 </string>
           </argument>
         </arguments>
