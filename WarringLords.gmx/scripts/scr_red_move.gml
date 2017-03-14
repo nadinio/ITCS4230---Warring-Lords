@@ -11,7 +11,11 @@ if (instance_position(mouse_x,mouse_y,par_red) && mouse_check_button_pressed(mb_
         var player;
         player = instance_nearest(mouse_x,mouse_y,par_red);
         
+<<<<<<< HEAD
         global.selected = player;
+=======
+        global.red_selected = player;
+>>>>>>> final
         
         with(obj_move_square) {instance_destroy();}
         with (obj_attack_square){instance_destroy();}
@@ -22,7 +26,11 @@ if (instance_position(mouse_x,mouse_y,par_red) && mouse_check_button_pressed(mb_
             {
                 with (par_blue)
                 {
+<<<<<<< HEAD
                     if (distance_to_object(global.selected) <= 130) {instance_create(x,y,obj_attack_square);}//we place an attack square at a distances
+=======
+                    if (distance_to_object(global.red_selected) <= 130) {instance_create(x,y,obj_attack_square);}//we place an attack square at a distances
+>>>>>>> final
                 }
             }
         }       
@@ -33,7 +41,11 @@ else if (!instance_position(mouse_x,mouse_y,par_red)&& mouse_check_button_presse
 {
     if (global.moving == false && global.attacking == false)//and were not moving or attacking
     {
+<<<<<<< HEAD
         global.selected = noone;//we have selected no one / get rid of the stuff
+=======
+        global.red_selected = noone;//we have selected no one / get rid of the stuff
+>>>>>>> final
         with (obj_move_square) {instance_destroy();}
         with (obj_attack_square) {instance_destroy();}
     }
@@ -41,14 +53,22 @@ else if (!instance_position(mouse_x,mouse_y,par_red)&& mouse_check_button_presse
 
 
 
+<<<<<<< HEAD
 if (global.selected != noone && mouse_check_button_pressed(mb_right))//if no one is selected and we right click
+=======
+if (global.red_selected != noone && mouse_check_button_pressed(mb_right))//if no one is selected and we right click
+>>>>>>> final
 {
     if (instance_position(mouse_x,mouse_y,obj_move_square))// if we clicked a move square
     {
         global.moving = true;    
         with (obj_move_square){instance_destroy();}//get rid of the move squares after they have been used
         with (obj_attack_square){instance_destroy();}
+<<<<<<< HEAD
         with (global.selected)
+=======
+        with (global.red_selected)
+>>>>>>> final
         {
             
             scr_navigation(x,y,round(mouse_x/32)*32,round(mouse_y/32)*32,pace);
@@ -59,7 +79,11 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))//if no one
     {
         global.enemy = instance_position(mouse_x,mouse_y,par_blue);//set the global enemy variable to what we clicked
         global.attacking = true;
+<<<<<<< HEAD
         with (global.selected) 
+=======
+        with (global.red_selected) 
+>>>>>>> final
         {
             attacked = true;
             if (type == 1)//if melee attack
@@ -86,7 +110,7 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))//if no one
 // used to set to the objects current node/ move the asset
 if (global.moving == true)
 {
-    with (global.selected)
+    with (global.red_selected)
     {
         if (path_index == -1)
         {
@@ -101,10 +125,17 @@ if (global.attacking == true)
 {
     if (global.moving == false)//can't attack and move at the same time
     {
+<<<<<<< HEAD
         with (global.selected) 
         {
             if(type==1){scr_melee_attack();}
             else if (type==2) {scr_ranged_attack();}
+=======
+        with (global.red_selected) 
+        {
+            if(type==1){scr_melee_attack();}
+            else if (type==2) {scr_red_ranged_attack();}
+>>>>>>> final
             attacked=true;
         }
     }

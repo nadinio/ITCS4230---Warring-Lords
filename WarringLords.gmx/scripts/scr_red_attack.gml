@@ -101,7 +101,11 @@ if (global.attacking == true)
         with (global.selected) 
         {
             if(type==1){scr_melee_attack();}
+<<<<<<< HEAD
             else if (type==2) {scr_ranged_attack();}
+=======
+            else if (type==2) {scr_red_ranged_attack();}
+>>>>>>> final
             attacked=true;
         }
     }

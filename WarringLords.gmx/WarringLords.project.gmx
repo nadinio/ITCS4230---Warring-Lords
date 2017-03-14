@@ -38,11 +38,21 @@
       <sprite>sprites\spr_castle</sprite>
     </sprites>
     <sprites name="Menu">
+      <sprites name="Buttons">
+        <sprite>sprites\spr_start_button</sprite>
+        <sprite>sprites\spr_back_button</sprite>
+        <sprite>sprites\spr_exit_button</sprite>
+        <sprite>sprites\spr_options_button</sprite>
+      </sprites>
+      <sprites name="Maps">
+        <sprite>sprites\spr_test1</sprite>
+        <sprite>sprites\spr_map1</sprite>
+        <sprite>sprites\spr_map2</sprite>
+        <sprite>sprites\spr_map3</sprite>
+        <sprite>sprites\spr_map4</sprite>
+      </sprites>
       <sprite>sprites\spr_Warring_lords_Logo</sprite>
-      <sprite>sprites\spr_exit_button</sprite>
-      <sprite>sprites\spr_options_button</sprite>
-      <sprite>sprites\spr_back_button</sprite>
-      <sprite>sprites\spr_start_button</sprite>
+      <sprite>sprites\spr_how_to_play</sprite>
     </sprites>
     <sprites name="NPCs">
       <sprite>sprites\spr_Barbarians</sprite>
@@ -50,12 +60,13 @@
     <sprites name="Display_items">
       <sprite>sprites\spr_Team_Name</sprite>
       <sprite>sprites\spr_move_square</sprite>
+      <sprite>sprites\spr_red_move_square</sprite>
+      <sprite>sprites\spr_projectile</sprite>
       <sprite>sprites\spr_attack_square</sprite>
       <sprite>sprites\spr_death</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
-    <background>background\bk_green</background>
     <background>background\bk_splash</background>
     <background>background\bk_Battle</background>
   </backgrounds>
@@ -64,9 +75,18 @@
     <scripts name="Red_Player">
       <script>scripts\scr_state_red_player_turn.gml</script>
       <script>scripts\scr_red_place_move_squares.gml</script>
+<<<<<<< HEAD
       <script>scripts\scr_red_attack.gml</script>
       <script>scripts\scr_red_move.gml</script>
       <script>scripts\scr_red_buy.gml</script>
+=======
+      <script>scripts\scr_red_calculate_dist.gml</script>
+    </scripts>
+    <scripts name="Blue_Player">
+      <script>scripts\scr_state_blue_player_turn.gml</script>
+      <script>scripts\scr_blue_place_move_squares.gml</script>
+      <script>scripts\scr_blue_calculate_dist.gml</script>
+>>>>>>> final
     </scripts>
     <scripts name="Blue_Player">
       <script>scripts\scr_state_blue_player_turn.gml</script>
@@ -74,14 +94,19 @@
       <script>scripts\scr_blue_move.gml</script>
     </scripts>
     <script>scripts\scr_navigation.gml</script>
+<<<<<<< HEAD
     <script>scripts\scr_calculate_dist.gml</script>
     <script>scripts\scr_melee_attack.gml</script>
+=======
+>>>>>>> final
     <script>scripts\scr_ranged_attack.gml</script>
+    <script>scripts\scr_melee_attack.gml</script>
   </scripts>
   <objects name="objects">
     <objects name="Assets">
       <objects name="Red_Assets">
         <objects name="Military">
+<<<<<<< HEAD
           <object>objects\obj_red_heavy_in</object>
         </objects>
         <object>objects\obj_red_capital</object>
@@ -96,6 +121,27 @@
         <object>objects\obj_apprentice</object>
         <object>objects\obj_spell_circle</object>
       </objects>
+=======
+          <object>objects\obj_red_light_in</object>
+          <object>objects\obj_red_heavy_in</object>
+          <object>objects\obj_red_knight</object>
+          <object>objects\obj_red_Cavalry</object>
+        </objects>
+        <object>objects\obj_red_capital</object>
+        <object>objects\obj_red_apprentice</object>
+      </objects>
+      <objects name="Blue_Assets">
+        <objects name="Military">
+          <object>objects\obj_blue_light_in</object>
+          <object>objects\obj_blue_heavy_in</object>
+          <object>objects\obj_blue_knight</object>
+          <object>objects\obj_blue_cavalry</object>
+        </objects>
+        <object>objects\obj_blue_capital</object>
+        <object>objects\obj_blue_apprentice</object>
+      </objects>
+      <object>objects\obj_projectile</object>
+>>>>>>> final
     </objects>
     <objects name="Controler">
       <object>objects\obj_control</object>
@@ -104,9 +150,15 @@
     </objects>
     <objects name="In_Game_GUI">
       <object>objects\obj_gui</object>
+<<<<<<< HEAD
       <object>objects\obj_damage_dealt</object>
       <object>objects\obj_attack_square</object>
       <object>objects\obj_move_square</object>
+=======
+      <object>objects\obj_Print_game_rules</object>
+      <object>objects\obj_damage_dealt</object>
+      <object>objects\obj_attack_square</object>
+>>>>>>> final
       <object>objects\obj_red_move_square</object>
       <object>objects\obj_blue_move_square</object>
     </objects>
@@ -114,25 +166,50 @@
       <object>objects\obj_splashcontroller</object>
     </objects>
     <objects name="Menu">
+<<<<<<< HEAD
       <object>objects\obj_start_Button</object>
       <object>objects\obj_Exit_Button</object>
       <object>objects\obj_options</object>
       <object>objects\obj_back_button</object>
+=======
+      <objects name="Button">
+        <object>objects\obj_start_Button</object>
+        <object>objects\obj_Rules_button</object>
+        <object>objects\obj_Exit_Button</object>
+        <object>objects\obj_back_button</object>
+      </objects>
+      <objects name="Map Buttons">
+        <object>objects\obj_test1</object>
+        <object>objects\obj_map1</object>
+        <object>objects\obj_map2</object>
+        <object>objects\obj_map3</object>
+        <object>objects\obj_map4</object>
+      </objects>
+      <object>objects\obj_options</object>
+>>>>>>> final
       <object>objects\obj_Warring_Lords_Logo</object>
       <object>objects\obj_Team_Name</object>
     </objects>
     <objects name="Parents">
       <object>objects\par_red</object>
+<<<<<<< HEAD
       <object>objects\par_blue</object>
       <object>objects\par_player</object>
       <object>objects\par_enemy</object>
+=======
+      <object>objects\par_red_building</object>
+      <object>objects\par_blue</object>
+>>>>>>> final
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_splash</room>
     <room>rooms\rm_Menu</room>
+    <room>rooms\rm_Map_room</room>
+    <room>rooms\rm_How_To_Play</room>
     <rooms name="Battle_Grounds">
       <room>rooms\rm_battle_map</room>
+      <room>rooms\rm_testing_blind_spot</room>
     </rooms>
   </rooms>
   <help>

@@ -53,7 +53,12 @@
   <instances>
     <instance objName="obj_Warring_Lords_Logo" x="384" y="32" name="inst_724F4DC1" locked="0" code="" scaleX="0.699999988079071" scaleY="0.5" colour="4294967295" rotation="0"/>
     <instance objName="obj_start_Button" x="384" y="128" name="inst_6B389843" locked="0" code="" scaleX="0.498069494962692" scaleY="0.493421047925949" colour="4294967295" rotation="0"/>
+<<<<<<< HEAD
     <instance objName="obj_Exit_Button" x="384" y="288" name="inst_AC3FF792" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+=======
+    <instance objName="obj_Exit_Button" x="384" y="256" name="inst_AC3FF792" locked="0" code="" scaleX="0.5" scaleY="0.5" colour="4294967295" rotation="0"/>
+    <instance objName="obj_Rules_button" x="384" y="192" name="inst_33B1F167" locked="0" code="" scaleX="0.400000005960464" scaleY="0.536423861980438" colour="4294967295" rotation="0"/>
+>>>>>>> final
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

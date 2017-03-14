@@ -26,14 +26,22 @@
           <argument>
             <kind>1</kind>
             <string>/// Variables
+<<<<<<< HEAD
 image_index = 2;// witch image to use
+=======
+image_index = 1;// witch image to use
+>>>>>>> final
 image_speed = 0;// Used to stop the animation
 
 attacked = false;// we only attack once a round
 
 type = 1; //1=mele, 2=range
 
+<<<<<<< HEAD
 pixel_dist = 100; // Range of movement
+=======
+pixel_dist = 67; // Range of movement
+>>>>>>> final
 orig_pixel_dist = pixel_dist;
 
 pace = 2;
@@ -64,10 +72,17 @@ death_anim = spr_death;
           <argument>
             <kind>1</kind>
             <string>/// Stats
+<<<<<<< HEAD
 
 attack = 50;
 defence = 100;
 max_health = 100;
+=======
+name = "Heavy Infantry";
+attack = 40;
+defence = 80;
+max_health = 80;
+>>>>>>> final
 
 /*
 cost
