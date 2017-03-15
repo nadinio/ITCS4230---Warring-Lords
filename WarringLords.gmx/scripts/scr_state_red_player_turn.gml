@@ -45,7 +45,7 @@ else if (!instance_position(mouse_x,mouse_y,par_red)&& mouse_check_button_presse
 
 if (global.selected != noone && mouse_check_button_pressed(mb_right))//if you right click on not no one
 {
-    if (instance_position(mouse_x,mouse_y,obj_red_move_square))
+    if (instance_position(mouse_x,mouse_y,obj_red_move_square))//walk normaly
     {
         global.moving = true;    
         with (obj_red_move_square){instance_destroy();}//get rid of the move squares affter they have been used
@@ -79,6 +79,7 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))//if you ri
                     );*/
                     scr_navigation(x,y,round(global.attack_travel_x/32)*32,round(global.attack_travel_y/32)*32,pace);
                     pixel_dist -= path_get_length(global.navigate);
+                    //audio_stop_sound(global.selected.move_snd);
                 }
             }
             else if (type == 2)//if we attack at range then we dont need to move
@@ -95,17 +96,22 @@ if (global.selected != noone && mouse_check_button_pressed(mb_right))//if you ri
 // used to set to the objects current node
 if (global.moving == true)
 {
+    //show_message("moving = "+string(global.moving));
+    //audio_play_sound(global.selected.move_snd, 10, true);
     with (global.selected)
     {
-        if (path_index == -1)
+        if path_index = -1
         {
             cur_node_x = x;
             cur_node_y = y;
             global.moving = false;
+            audio_stop_sound(global.selected.move_snd);
+            //show_message("moving = "+string(global.moving));
         }
     }
 }
 
+//attacking
 if (global.attacking == true)
 {
     if (global.moving == false)
@@ -124,6 +130,7 @@ if (global.attacking == true)
         }
     }
 }
+
 
 // end turn after one move 
 if (end_turn >0)

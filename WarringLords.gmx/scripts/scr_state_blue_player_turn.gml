@@ -102,6 +102,7 @@ if (global.moving == true)
             cur_node_x = x;
             cur_node_y = y;
             global.moving = false;
+            audio_stop_sound(move_snd);
         }
     }
 }

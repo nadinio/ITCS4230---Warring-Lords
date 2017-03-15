@@ -43,6 +43,11 @@ cur_node_y = y;
 
 //animation 
 death_anim = spr_death;
+//sound 
+attack_snd = snd_heavy_attack;
+move_snd = snd_armor_move2;
+death_snd = snd_death;
+damag_snd = snd_damge;
 </string>
           </argument>
         </arguments>

@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>11</kind>
-            <room>-1</room>
+            <room>rm_disadvantage</room>
           </argument>
         </arguments>
       </action>

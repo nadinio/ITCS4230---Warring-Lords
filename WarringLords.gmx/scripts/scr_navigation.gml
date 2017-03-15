@@ -13,8 +13,8 @@ show_message//bug hunt code
     "#end_y:"+string(end_y)+
     "#pace:"+string(pace)
 );*/
-
-
+audio_play_sound(global.selected.move_snd, 10, true);
+//audio_stop_sound(global.selected.move_snd)
 if !(mp_grid_path(global.map_grid, global.navigate,start_x,start_y,end_x,end_y,1))
 {
     show_message("you can't move there");

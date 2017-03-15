@@ -1,7 +1,8 @@
 
 if(instance_number(my_projectile)== 0)
 {
-   instance_create(x+5,y,my_projectile);
+    audio_play_sound(attack_snd, 10, false);
+    instance_create(x+5,y,my_projectile);
 }
     
 with (my_projectile)
@@ -22,6 +23,7 @@ with (my_projectile)
         {
             global.enemy.sprite_index = global.enemy.death_anim;
             global.enemy.image_speed = 0.5;
+            audio_play_sound(global.enemy.death_snd, 10, false);
         }   
         global.attacking = false;
         global.enemy = noone;
